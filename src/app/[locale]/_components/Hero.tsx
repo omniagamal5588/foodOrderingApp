@@ -1,23 +1,22 @@
+// 
 import Link from '@/components/link';
 import { buttonVariants } from '@/components/ui/button';
-import { Routes } from '@/constants/enums';
+import { Languages, Routes } from '@/constants/enums';
 import { getCurrentLocale } from '@/lib/getCurrentLocale';
 import getTrans from '@/lib/translation';
 import { ArrowRightCircle } from 'lucide-react';
 import Image from 'next/image';
 
 async function Hero() {
-  const local =  await getCurrentLocale();
-  const {home }= await getTrans(local);
-  const {hero}= home
+  const locale = await getCurrentLocale();
 
-
-  
+  const { home } = await getTrans(locale);
+  const { hero } = home;
   return (
     <section className='section-gap'>
       <div className='container grid grid-cols-1 md:grid-cols-2'>
         <div className='md:py-12'>
-          <h1 className='text-4xl font-semibold'></h1>
+          <h1 className='text-4xl font-semibold'>{hero.title}</h1>
           <p className='text-accent my-4'>{hero.description}</p>
           <div className='flex items-center gap-4'>
             <Link
@@ -26,32 +25,36 @@ async function Hero() {
                 size: 'lg',
               })} space-x-2 !px-4 !rounded-full uppercase`}
             >
-             Show More
+              {hero.orderNow}
               <ArrowRightCircle
-                className={`!w-5 !h-5`}
+                className={`!w-5 !h-5 ${
+                  locale === Languages.ARABIC ? 'rotate-180 ' : ''
+                }`}
               />
             </Link>
             <Link
               href={`/${Routes.ABOUT}`}
               className='flex gap-2 items-center text-black hover:text-primary duration-200 transition-colors font-semibold'
             >
-            learn more
+              {hero.learnMore}
               <ArrowRightCircle
-                className={`!w-5 !h-5`}
+                className={`!w-5 !h-5 ${
+                  locale === Languages.ARABIC ? 'rotate-180 ' : ''
+                }`}
               />
             </Link>
           </div>
         </div>
-        <div className='relative hidden md:block'>
+        <div className="relative hidden md:block h-[350px] w-full">
           <Image
-            src='/assets/images/pizza.png'
-            alt='Pizza'
+            src="https://i.pinimg.com/1200x/13/87/6d/13876dc02b74be522e6d74361c4488cd.jpg"
+            alt="Pizza"
             fill
-            className='object-contain'
-            loading='eager'
+            className="object-contain"
+            loading="eager"
             priority
           />
-        </div>
+      </div>
       </div>
     </section>
   );

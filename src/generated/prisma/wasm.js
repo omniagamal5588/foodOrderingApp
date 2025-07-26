@@ -131,8 +131,40 @@ exports.Prisma.UserScalarFieldEnum = {
   postalCode: 'postalCode',
   city: 'city',
   country: 'country',
+  role: 'role',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
+};
+
+exports.Prisma.SessionScalarFieldEnum = {
+  id: 'id',
+  sessionToken: 'sessionToken',
+  userId: 'userId',
+  expires: 'expires'
+};
+
+exports.Prisma.VerificationRequestScalarFieldEnum = {
+  id: 'id',
+  identifier: 'identifier',
+  token: 'token',
+  expires: 'expires',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.AccountScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  type: 'type',
+  provider: 'provider',
+  providerAccountId: 'providerAccountId',
+  refresh_token: 'refresh_token',
+  access_token: 'access_token',
+  expires_at: 'expires_at',
+  token_type: 'token_type',
+  scope: 'scope',
+  id_token: 'id_token',
+  session_state: 'session_state'
 };
 
 exports.Prisma.ProductScalarFieldEnum = {
@@ -145,6 +177,26 @@ exports.Prisma.ProductScalarFieldEnum = {
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   categoryId: 'categoryId'
+};
+
+exports.Prisma.SizeScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  price: 'price',
+  productId: 'productId'
+};
+
+exports.Prisma.ExtraScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  price: 'price',
+  productId: 'productId'
+};
+
+exports.Prisma.CategoryScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  order: 'order'
 };
 
 exports.Prisma.OrderScalarFieldEnum = {
@@ -171,26 +223,6 @@ exports.Prisma.OrderProductScalarFieldEnum = {
   productId: 'productId'
 };
 
-exports.Prisma.SizeScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  productId: 'productId',
-  price: 'price'
-};
-
-exports.Prisma.ExtraScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  price: 'price',
-  productId: 'productId'
-};
-
-exports.Prisma.CategoryScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  order: 'order'
-};
-
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -205,9 +237,14 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
+exports.UserRole = exports.$Enums.UserRole = {
+  USER: 'USER',
+  ADMIN: 'ADMIN'
+};
+
 exports.ProductSizes = exports.$Enums.ProductSizes = {
   SMALL: 'SMALL',
-  MEDUIM: 'MEDUIM',
+  MEDIUM: 'MEDIUM',
   LARGE: 'LARGE'
 };
 
@@ -221,12 +258,15 @@ exports.ExtraIngredients = exports.$Enums.ExtraIngredients = {
 
 exports.Prisma.ModelName = {
   User: 'User',
+  Session: 'Session',
+  VerificationRequest: 'VerificationRequest',
+  Account: 'Account',
   Product: 'Product',
-  Order: 'Order',
-  OrderProduct: 'OrderProduct',
   Size: 'Size',
   Extra: 'Extra',
-  Category: 'Category'
+  Category: 'Category',
+  Order: 'Order',
+  OrderProduct: 'OrderProduct'
 };
 
 /**

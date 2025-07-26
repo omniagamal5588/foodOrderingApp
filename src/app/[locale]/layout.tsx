@@ -5,6 +5,7 @@ import { Directions, Languages } from "@/constants/enums";
 import type { Metadata } from "next";
 import { Cairo, Roboto } from "next/font/google";
 import { Locale } from "@/i18n.config";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 
@@ -52,6 +53,7 @@ export default async function RootLayout({
             <Header />
             {children}
             <Footer />
+            <Toaster  />
           </ReduxProvider>
         
       </body>

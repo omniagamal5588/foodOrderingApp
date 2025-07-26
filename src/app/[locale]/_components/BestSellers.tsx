@@ -10,6 +10,7 @@ import React from 'react'
 
 async function BestSellers() {
  const bestSellers = await getProductData()
+ console.log('bestSeller', bestSellers)
  const local = await getCurrentLocale();
  const {home}= await getTrans(local);
  const {bestSeller}= home;
